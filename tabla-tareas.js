@@ -8,6 +8,7 @@ class Tarea {
         this.fecha = fecha;
         this.texto = texto;
         this.importancia = importancia;
+        this.completada = false;
     }
 
     creaFila(indice) {
@@ -61,22 +62,24 @@ class Tarea {
         let checkMobile = mobileBtns.querySelector(".icono-hecho");
 
         trashMobile.addEventListener("click", () => borrarItem(indice));
-        checkMobile.addEventListener("click", () =>
-            hechoItem(indice, filaTarea)
-        );
+        checkMobile.addEventListener("click", () => hechoItem(indice));
 
         filaTarea.setAttribute("importancia", this.importancia);
+        if (this.completada) {
+            filaTarea.classList.add("hecho");
+        }
         return filaTarea;
     }
 }
 
-function hechoItem(indice, fila) {
+function hechoItem(indice) {
     const mensaje = `¿Quieres marcar como realizada la tarea ${
         tareas[indice].texto
     } de la fecha ${tareas[indice].fecha.toLocaleString()}?`;
     mensajeConfirmación(mensaje).then((respuesta) => {
         if (respuesta) {
-            fila.setAttribute("hecho", "hecho");
+            tareas[indice].completada = !tareas[indice].completada;
+            renderizarListado();
             // renderizarListado(); Si renderizo la tabla no se ven los cambios porque vuelve a poner la tabla original
             toast("Has completado la tarea", "tostadaHecho");
         }

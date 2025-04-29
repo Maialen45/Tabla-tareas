@@ -131,7 +131,7 @@ td {
     width: 45%;
 }
 
-tr[hecho="hecho"] {
+tr.hecho {
     background-color: lightgrey !important;
     text-decoration: line-through;
 }
