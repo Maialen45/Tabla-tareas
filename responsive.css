@@ -1,0 +1,137 @@
+/* responsive.css */
+@media (max-width: 480px) {
+    body {
+        margin: 10px;
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .formulario,
+    .formulario2 {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #tarea_nueva,
+    #momento,
+    #importancia,
+    #aniadir_tarea {
+        width: 100%;
+        box-sizing: border-box;
+        margin-right: 0;
+    }
+
+    /* Mejoras para la tabla en móviles */
+    .tabla thead {
+        display: none;
+    }
+
+    .tabla thead th.celdaBotonBorrar,
+    .tabla thead th.celdaBotonCheck {
+        display: none;
+    }
+
+    .tabla tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tabla tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .tabla td {
+        display: flex;
+        padding: 8px 5px;
+        border-bottom: transparent;
+        font-size: 14px;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .tabla td:nth-last-child(2) {
+        border-bottom: none;
+    }
+
+    .tabla td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 20px;
+        width: 40px;
+    }
+
+    .tabla tr .botones-accion {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        padding-top: 8px;
+        border-top: 1px solid #eee;
+        margin-top: 5px;
+    }
+
+    .tabla td.celdaBotonBorrar,
+    .tabla td.celdaBotonCheck {
+        display: none;
+    }
+
+    .botones-accion i {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .botones-accion-mobile i {
+        font-size: 17px;
+    }
+
+    #borrar {
+        color: red;
+    }
+    #hecho {
+        color: green;
+    }
+
+    /* Efecto al tocar los botones */
+    .botones-accion i:active {
+        transform: scale(1.2);
+        transition: transform 0.1s;
+    }
+
+    .botones-accion-mobile {
+        display: flex !important;
+        justify-content: center;
+        gap: 30px;
+        padding: 10px 0;
+        margin-top: 5px;
+    }
+
+    .botones-accion-mobile::before {
+        content: "";
+        display: none;
+    }
+
+    .celdaBotonBorrar,
+    .celdaBotonCheck {
+        display: none !important;
+    }
+}
+
+@media (min-width: 481px) {
+    .botones-accion-mobile {
+        display: none !important;
+    }
+}

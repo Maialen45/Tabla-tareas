@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <link rel="stylesheet" href="estilos.css" />
+        <link rel="stylesheet" href="responsive.css" />
+        <script
+            src="https://kit.fontawesome.com/9f60dd80e7.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>Listado Tareas</title>
+    </head>
+    <body>
+        <div class="contenedor">
+            <h1>Listado de tareas pendientes</h1>
+            <hr />
+            <div class="contenedor-formulario">
+                <div class="formulario">
+                    <input
+                        type="text"
+                        id="tarea_nueva"
+                        maxlength="40"
+                        placeholder="Introduce una nueva tarea"
+                    />
+                    <input type="datetime-local" id="momento" />
+                </div>
+                <div class="formulario2">
+                    <select name="" id="importancia">
+                        <option value="" disabled selected>
+                            Seleccione la importancia
+                        </option>
+                        <option value="baja">Normal</option>
+                        <option value="media">Importante</option>
+                        <option value="alta">Muy importante</option>
+                    </select>
+                    <button
+                        type="button"
+                        id="aniadir_tarea"
+                        class="botonAñadir"
+                    >
+                        Añadir
+                    </button>
+                </div>
+            </div>
+            <div class="contenedor-tabla">
+                <h3>Tareas a realizar</h3>
+                <div class="tabla-scroll">
+                    <table class="tabla">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="tabla-fecha">Fecha</th>
+                                <th scope="col" class="tabla-tarea">Tarea</th>
+                                <th scope="col" class="celdaBotonBorrar">
+                                    Borrar
+                                </th>
+                                <th scope="col" class="celdaBotonCheck">
+                                    Hecho
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla_tareas"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="tabla-tareas.js"></script>
+    </body>
+</html>
